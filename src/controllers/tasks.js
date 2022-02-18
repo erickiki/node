@@ -2,7 +2,7 @@ import { connect } from "../database";
 
 export const getTasks = async (req, res) => {
   const connection = await connect();
-  const [rows] = await connection.execute("select * from excel");
+  const [rows] = await connection.execute("select * from excel where n_guia = 5958");
   res.json(rows);
 };
 
