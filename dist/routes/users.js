@@ -1,23 +1,17 @@
-import { Router } from "express";
-import {
-  deleteTask,
-  getTasks,
-  saveTask,
-  getTask,
-  getInforme,
-  updateTask,
-  getTasksCount,
-} from "../controllers/tasks";
-import {
-  deleteUser,
-  getUsers,
-  saveUser,
-  getUser,
-  updateUser,
-  getUsersCount,
-} from "../controllers/Users";
-const router = Router();
+"use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+
+var _express = require("express");
+
+var _tasks = require("../controllers/tasks");
+
+var _Users = require("../controllers/Users");
+
+var router = (0, _express.Router)();
 /**
  * @swagger
  * components:
@@ -46,8 +40,9 @@ const router = Router();
  *    summary: Get all Tasks
  *    tags: [Tasks]
  */
-router.get("/", getTasks);
-router.get("/Users/", getUsers);
+
+router.get("/", _tasks.getTasks);
+router.get("/Users/", _Users.getUsers);
 /**
  * @swagger
  * /tasks/count:
@@ -55,8 +50,8 @@ router.get("/Users/", getUsers);
  *    summary: get total tasks counter
  *    tags: [Tasks]
  */
-router.get("/tasks/count", getTasksCount);
 
+router.get("/tasks/count", _tasks.getTasksCount);
 /**
  * @swagger
  * /tasks:
@@ -64,8 +59,8 @@ router.get("/tasks/count", getTasksCount);
  *    summary: save a new Task
  *    tags: [Tasks]
  */
-router.post("/tasks", saveTask);
 
+router.post("/tasks", _tasks.saveTask);
 /**
  * @swagger
  * /tasks/{id}:
@@ -73,9 +68,9 @@ router.post("/tasks", saveTask);
  *    summary: Get task by Id
  *    tags: [Tasks]
  */
-router.get("/tasks/:id", getTask);
-router.get("/informe/:id", getInforme);
 
+router.get("/tasks/:id", _tasks.getTask);
+router.get("/informe/:id", _tasks.getInforme);
 /**
  * @swagger
  * /tasks/{id}:
@@ -83,8 +78,8 @@ router.get("/informe/:id", getInforme);
  *    summary: delete a task by Id
  *    tags: [Tasks]
  */
-router.delete("/tasks/:id", deleteTask);
 
+router["delete"]("/tasks/:id", _tasks.deleteTask);
 /**
  * @swagger
  * /tasks/{id}:
@@ -92,6 +87,7 @@ router.delete("/tasks/:id", deleteTask);
  *    summary: update a task by Id
  *    tags: [Tasks]
  */
-router.put("/tasks/:id", updateTask);
 
-export default router;
+router.put("/tasks/:id", _tasks.updateTask);
+var _default = router;
+exports["default"] = _default;

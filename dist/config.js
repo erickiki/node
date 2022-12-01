@@ -1,12 +1,19 @@
-import { config as dotenv } from "dotenv";
-dotenv();
+"use strict";
 
-export const config = {
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.config = void 0;
+
+var _dotenv = require("dotenv");
+
+(0, _dotenv.config)();
+var config = {
   host: process.env.DB_HOST || "localhost",
   user: process.env.DB_USER || "root",
   password: process.env.DB_PASSWORD || "",
   database: process.env.DB_DATABASE || "soboce",
-  port: process.env.DB_PORT ||"3306"
+  port: process.env.DB_PORT || "3306"
 };
 /* export const config = {
   host: process.env.DB_HOST || "498zzu4dy6t9.us-east-3.psdb.cloud",
@@ -17,3 +24,5 @@ export const config = {
   
   
 }; */
+
+exports.config = config;
